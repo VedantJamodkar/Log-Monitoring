@@ -100,6 +100,6 @@ Use filters such as:
 ```
 docker compose down
 ```
-🙌 Authors :
+🙌 Author :
   Vedant Jamodkar
 
