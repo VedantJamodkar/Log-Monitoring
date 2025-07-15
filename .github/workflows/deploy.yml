@@ -12,13 +12,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Set up Docker
-      uses: docker/setup-buildx-action@v3
-
-    - name: Set up Docker Compose
+    - name: Install Docker and Compose
       run: |
-        sudo apt-get update
-        sudo apt-get install docker-compose-plugin
+        curl -fsSL https://get.docker.com | sh
+        sudo usermod -aG docker $USER
+        newgrp docker
 
     - name: Run Docker Compose
       run: docker compose -f docker-compose.yml up -d --build
