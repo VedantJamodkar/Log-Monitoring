@@ -62,3 +62,45 @@ Example queries:
 {job="robot-logs", severity_text="CRITICAL"}    # Only critical logs
 {job="robot-logs"} |= "redis"                   # Logs containing the word 'redis'
 
+🐳 Dockerized Setup
+🔧 To Run Locally:
+docker compose up -d --build
+Visit:
+
+Grafana: http://localhost:3000
+
+Username: admin
+
+Password: admin
+
+⚙️ CI/CD Pipeline
+This project includes a GitHub Actions workflow:
+
+Trigger: On push to main
+
+Action:
+
+Pull latest code
+
+Install Docker & Compose
+
+Deploy the stack using docker compose
+
+You can find the workflow at:
+.github/workflows/deploy.yml
+
+🧪 Test It
+Once running:
+
+Open Grafana.
+
+Add a Loki data source pointing to http://loki:3100.
+
+Create dashboard with logs table.
+
+Use filters such as:
+
+{job="robot-logs"}
+
+{job="robot-logs", severity_text="CRITICAL"}
+
